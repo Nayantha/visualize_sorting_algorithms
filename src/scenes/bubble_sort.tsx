@@ -29,4 +29,17 @@ export default makeScene2D(function* (view) {
     )
     // text list - used to represent the elements in the random number list
     const texts: Txt[] = [];
+    yield view.add(
+        range(randomNumbersListLength).map(i => (
+            <Txt
+                ref={makeRef(texts, i)}
+                fontSize={75}
+                fontFamily={'JetBrains Mono'}
+                text={signals[i]().toString()}
+                x={rects[i].x()}
+                y={-275}
+                fill={'#f0f0f0'}
+            />
+        ))
+    )
 });
