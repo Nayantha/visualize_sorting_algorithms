@@ -1,7 +1,7 @@
 import {makeProject} from '@motion-canvas/core';
 
-import example from './scenes/example?scene';
+import looping_rectangles from "../looping_rectangles?scene";
 
 export default makeProject({
-  scenes: [example],
+  scenes: [looping_rectangles],
 });
