@@ -7,6 +7,7 @@ export default defineConfig({
     motionCanvas({
             project: [
                 './src/projects/project.ts',
+                './src/projects/bubble_sort.ts',
             ],
         }
        ),
