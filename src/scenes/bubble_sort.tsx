@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
-import {createRef, createSignal, makeRef, range, useRandom, waitFor} from "@motion-canvas/core";
+import {all, createRef, createSignal, makeRef, range, useRandom, waitFor} from "@motion-canvas/core";
 import {CodeBlock, lines} from "@motion-canvas/2d/lib/components/CodeBlock";
 
 export default makeScene2D(function* (view) {
@@ -88,6 +88,9 @@ export default makeScene2D(function* (view) {
         yield* code().selection(lines(2), 0.2);
         for (let j = 0; j < randomNumbersListLength - i - 1; j++) {
             yield* code().selection(lines(3), 0.2)
+            yield* all(
+                code().selection(lines(4), 0.2)
+            )
         }
     }
 });
