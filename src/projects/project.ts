@@ -1,7 +1,7 @@
 import {makeProject} from '@motion-canvas/core';
 
-import bubble_sort from "../scenes/bubble_sort?scene";
+import example from "../scenes/example?scene";
 
 export default makeProject({
-  scenes: [bubble_sort],
+  scenes: [example],
 });
