@@ -62,6 +62,7 @@ export default makeScene2D(function* (view) {
                     offsetX={-1}
                     x={-1920 + 350}
                     y={+1080/2 - 300}
+                    fontFamily={'JetBrains Mono'}
                 />
             </Rect>
         </>
