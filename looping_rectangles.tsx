@@ -1,5 +1,5 @@
 import {makeScene2D, Rect} from '@motion-canvas/2d';
-import {all, makeRef, range} from '@motion-canvas/core';
+import {all, delay, makeRef, range} from '@motion-canvas/core';
 
 export default makeScene2D(function* (view) {
     const rects: Rect[] = [];
@@ -16,6 +16,6 @@ export default makeScene2D(function* (view) {
         )),
     );
     yield* all(
-        ...rects.map(rect=>rect.position.y(100, 1).to(-100, 2).to(0, 1)),
+        ...rects.map((rect, index)=>delay(index, rect.position.y(100, 1).to(-100, 2).to(0, 1))),
     );
 });
