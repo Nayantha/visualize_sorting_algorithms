@@ -1,8 +1,8 @@
 import {Circle, makeScene2D} from '@motion-canvas/2d';
-import {createRef, waitFor} from '@motion-canvas/core';
+import {all, createRef} from '@motion-canvas/core';
 
 export default makeScene2D(function* (view) {
-    const myCircle = createRef<Circle>()
+    const myCircle = createRef<Circle>();
 
   view.add(
       <Circle
@@ -14,5 +14,7 @@ export default makeScene2D(function* (view) {
       />
   );
 
-    yield* waitFor(5);
+    yield* all(
+        myCircle().position.x(300, 1).to(-300, 1)
+    );
 });
