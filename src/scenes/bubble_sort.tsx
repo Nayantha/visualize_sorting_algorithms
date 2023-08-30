@@ -128,6 +128,10 @@ export default makeScene2D(function* (view) {
                     );
                     break;
                 }
+                yield* all(
+                    rects[map.get(j)].fill('#e3242b', 0.2),
+                    rects[map.get(j+1)].fill('#e3242b', 0.2),
+                );
             }
         }
     }
