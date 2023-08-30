@@ -1,5 +1,6 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
-import {createSignal, makeRef, range, useRandom} from "@motion-canvas/core";
+import {createRef, createSignal, makeRef, range, useRandom} from "@motion-canvas/core";
+import {CodeBlock} from "@motion-canvas/2d/lib/components/CodeBlock";
 
 export default makeScene2D(function* (view) {
     view.fill('#141414');
@@ -42,4 +43,6 @@ export default makeScene2D(function* (view) {
             />
         ))
     )
+    const code = createRef<CodeBlock>();
+    const codeBlock = createRef<Rect>();
 });
