@@ -82,6 +82,10 @@ export default makeScene2D(function* (view) {
     yield code().selection(lines(0), 0.2);
     let jump = 90;
     let swapped = false;
+    let map: Map<number, number> = new Map();
+    for (let i = 0; i < randomNumbersListLength; i++) {
+        map.set(i, i);
+    }
     for (let i = 0; i < randomNumbersListLength - 1; i++){
         swapped = false;
         yield* code().selection(lines(1), 0.2);
