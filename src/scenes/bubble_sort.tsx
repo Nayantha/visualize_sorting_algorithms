@@ -86,5 +86,8 @@ export default makeScene2D(function* (view) {
         swapped = false;
         yield* code().selection(lines(1), 0.2);
         yield* code().selection(lines(2), 0.2);
+        for (let j = 0; j < randomNumbersListLength - i - 1; j++) {
+            yield* code().selection(lines(3), 0.2)
+        }
     }
 });
