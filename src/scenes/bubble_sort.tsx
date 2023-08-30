@@ -8,10 +8,10 @@ export default makeScene2D(function* (view) {
     // random number list generation
     const randomNumbersListLength = 10;
     const random = useRandom();
-    let randomNumbers = range(randomNumbersListLength).map(_ =>random.nextInt(1, 100));
+    let randomNumbers = range(randomNumbersListLength).map(_ => random.nextInt(1, 100));
 
     //random number list to signals
-    const signals = randomNumbers.map(number=>createSignal(number));
+    const signals = randomNumbers.map(number => createSignal(number));
 
     // rectangle list - used to hold the elements in the random number list
     const rects: Rect[] = [];
@@ -61,8 +61,19 @@ export default makeScene2D(function* (view) {
                     fontSize={40}
                     offsetX={-1}
                     x={-1920 + 350}
-                    y={+1080/2 - 300}
+                    y={+1080 / 2 - 300}
                     fontFamily={'JetBrains Mono'}
+                    code={() => `def bubbleSort(arr, n):
+    for i in range(n):
+        swapped = False
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1] :
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = True
+        if swapped == False:
+            break
+    return arr`
+                }
                 />
             </Rect>
         </>
