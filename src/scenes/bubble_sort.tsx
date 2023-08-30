@@ -45,4 +45,16 @@ export default makeScene2D(function* (view) {
     )
     const code = createRef<CodeBlock>();
     const codeBlock = createRef<Rect>();
+    yield view.add(
+        <>
+            <Rect
+                ref={codeBlock}
+                width={1920}
+                height={720}
+                x={0}
+                y={-350}
+                offset={-1}
+            ></Rect>
+        </>
+    )
 });
