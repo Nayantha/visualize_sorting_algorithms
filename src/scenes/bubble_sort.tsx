@@ -121,6 +121,13 @@ export default makeScene2D(function* (view) {
                     rects[map.get(j + 1)].y(rects[map.get(j + 1)].y() + jump, 0.1),
                     texts[map.get(j + 1)].y(texts[map.get(j + 1)].y() + jump, 0.1),
                 )
+                if (j == randomNumbersListLength - i - 2){
+                    yield* all (
+                        rects[map.get(j)].fill('#e3242b', 0.2),
+                        rects[map.get(j+1)].fill('#2832c2', 0.2),
+                    );
+                    break;
+                }
             }
         }
     }
