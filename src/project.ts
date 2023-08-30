@@ -1,7 +1,7 @@
 import {makeProject} from '@motion-canvas/core';
 
-import looping_rectangles from "./scenes/looping_rectangles?scene";
+import bubble_sort from "./scenes/bubble_sort?scene";
 
 export default makeProject({
-  scenes: [looping_rectangles],
+  scenes: [bubble_sort],
 });
