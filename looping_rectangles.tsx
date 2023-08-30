@@ -1,21 +1,21 @@
-import {Circle, makeScene2D} from '@motion-canvas/2d';
-import {all, createRef} from '@motion-canvas/core';
+import {makeScene2D, Rect} from '@motion-canvas/2d';
+import {all, makeRef, range} from '@motion-canvas/core';
 
 export default makeScene2D(function* (view) {
-    const myCircle = createRef<Circle>();
-
+    const rects: Rect[] = [];
     view.add(
-        <Circle
-            ref={myCircle}
-            x={-300}
-            width={140}
-            height={140}
-            fill="#e13238"
-        />
+        range(5).map(i => (
+            <Rect
+                ref={makeRef(rects, i)}
+                width={100}
+                height={100}
+                x={-250 + 125 * i}
+                fill="88C0D0"
+                radius={10}
+            />
+        )),
     );
-
     yield* all(
-        myCircle().position.x(300, 1).to(-300, 1),
-        myCircle().fill("#e6a700", 1).to("#e13238", 1)
+        ...rects.map(rect=>rect.position.y(100, 1).to(-100, 2).to(0, 1)),
     );
 });
