@@ -1,4 +1,4 @@
-import {makeScene2D} from "@motion-canvas/2d";
+import {makeScene2D, Rect} from "@motion-canvas/2d";
 import {createSignal, range, useRandom} from "@motion-canvas/core";
 
 export default makeScene2D(function* (view) {
@@ -11,4 +11,7 @@ export default makeScene2D(function* (view) {
 
     //random number list to signals
     const signals = randomNumbers.map(number=>createSignal(number));
+
+    // rectangle list - used to represent the elements in the random number list
+    const rects: Rect[] = [];
 });
