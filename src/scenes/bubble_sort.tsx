@@ -108,6 +108,13 @@ export default makeScene2D(function* (view) {
                     rects[map.get(j+1)].y(rects[map.get(j+1)].y()-jump, 0.1),
                     texts[map.get(j+1)].y(texts[map.get(j+1)].y()-jump, 0.1),
                 );
+                yield* all(
+                    code().selection(lines(5, 6), 0.1),
+                    rects[map.get(j)].x(rects[map.get(j)].x()-185, 0.2),
+                    texts[map.get(j)].x(texts[map.get(j)].x()-185, 0.2),
+                    rects[map.get(j+1)].x(rects[map.get(j+1)].x()+185, 0.2),
+                    texts[map.get(j+1)].x(texts[map.get(j+1)].x()+185, 0.2),
+                )
             }
         }
     }
