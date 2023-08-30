@@ -93,7 +93,9 @@ export default makeScene2D(function* (view) {
         for (let j = 0; j < randomNumbersListLength - i - 1; j++) {
             yield* code().selection(lines(3), 0.2)
             yield* all(
-                code().selection(lines(4), 0.2)
+                code().selection(lines(4), 0.2),
+                rects[map.get(j)].fill("#e6a700", 0.2),
+                rects[map.get(j+1)].fill('#e6a700', 0.2),
             )
         }
     }
