@@ -73,7 +73,7 @@ export default makeScene2D(function* (view) {
         if swapped == False:
             break
     return arr`
-                }
+                    }
                 />
             </Rect>
         </>
@@ -86,7 +86,7 @@ export default makeScene2D(function* (view) {
     for (let i = 0; i < randomNumbersListLength; i++) {
         map.set(i, i);
     }
-    for (let i = 0; i < randomNumbersListLength - 1; i++){
+    for (let i = 0; i < randomNumbersListLength - 1; i++) {
         swapped = false;
         yield* code().selection(lines(1), 0.2);
         yield* code().selection(lines(2), 0.2);
@@ -95,31 +95,31 @@ export default makeScene2D(function* (view) {
             yield* all(
                 code().selection(lines(4), 0.2),
                 rects[map.get(j)].fill("#e6a700", 0.2),
-                rects[map.get(j+1)].fill('#e6a700', 0.2),
+                rects[map.get(j + 1)].fill('#e6a700', 0.2),
             );
-            if (texts[map.get(j)].text() > texts[map.get(j+1)].text()) {
+            if (texts[map.get(j)].text() > texts[map.get(j + 1)].text()) {
                 swapped = true;
                 let temp2 = map.get(j);
-                map.set(j, map.get(j+1));
-                map.set(j+1, temp2);
+                map.set(j, map.get(j + 1));
+                map.set(j + 1, temp2);
                 yield* all(
-                    rects[map.get(j)].y(rects[map.get(j)].y()+jump, 0.1),
-                    texts[map.get(j)].y(texts[map.get(j)].y()+jump, 0.1),
-                    rects[map.get(j+1)].y(rects[map.get(j+1)].y()-jump, 0.1),
-                    texts[map.get(j+1)].y(texts[map.get(j+1)].y()-jump, 0.1),
+                    rects[map.get(j)].y(rects[map.get(j)].y() + jump, 0.1),
+                    texts[map.get(j)].y(texts[map.get(j)].y() + jump, 0.1),
+                    rects[map.get(j + 1)].y(rects[map.get(j + 1)].y() - jump, 0.1),
+                    texts[map.get(j + 1)].y(texts[map.get(j + 1)].y() - jump, 0.1),
                 );
                 yield* all(
                     code().selection(lines(5, 6), 0.1),
-                    rects[map.get(j)].x(rects[map.get(j)].x()-185, 0.2),
-                    texts[map.get(j)].x(texts[map.get(j)].x()-185, 0.2),
-                    rects[map.get(j+1)].x(rects[map.get(j+1)].x()+185, 0.2),
-                    texts[map.get(j+1)].x(texts[map.get(j+1)].x()+185, 0.2),
+                    rects[map.get(j)].x(rects[map.get(j)].x() - 185, 0.2),
+                    texts[map.get(j)].x(texts[map.get(j)].x() - 185, 0.2),
+                    rects[map.get(j + 1)].x(rects[map.get(j + 1)].x() + 185, 0.2),
+                    texts[map.get(j + 1)].x(texts[map.get(j + 1)].x() + 185, 0.2),
                 )
                 yield* all(
-                    rects[map.get(j)].y(rects[map.get(j)].y()-jump, 0.1),
-                    texts[map.get(j)].y(texts[map.get(j)].y()-jump, 0.1),
-                    rects[map.get(j+1)].y(rects[map.get(j+1)].y()+jump, 0.1),
-                    texts[map.get(j+1)].y(texts[map.get(j+1)].y()+jump, 0.1),
+                    rects[map.get(j)].y(rects[map.get(j)].y() - jump, 0.1),
+                    texts[map.get(j)].y(texts[map.get(j)].y() - jump, 0.1),
+                    rects[map.get(j + 1)].y(rects[map.get(j + 1)].y() + jump, 0.1),
+                    texts[map.get(j + 1)].y(texts[map.get(j + 1)].y() + jump, 0.1),
                 )
             }
         }
