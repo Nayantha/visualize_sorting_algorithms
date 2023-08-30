@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
-import {all, createRef, createSignal, makeRef, range, useRandom, waitFor} from "@motion-canvas/core";
+import {all, createRef, createSignal, DEFAULT, makeRef, range, useRandom, waitFor} from "@motion-canvas/core";
 import {CodeBlock, lines} from "@motion-canvas/2d/lib/components/CodeBlock";
 
 export default makeScene2D(function* (view) {
@@ -121,17 +121,27 @@ export default makeScene2D(function* (view) {
                     rects[map.get(j + 1)].y(rects[map.get(j + 1)].y() + jump, 0.1),
                     texts[map.get(j + 1)].y(texts[map.get(j + 1)].y() + jump, 0.1),
                 )
-                if (j == randomNumbersListLength - i - 2){
-                    yield* all (
+                if (j == randomNumbersListLength - i - 2) {
+                    yield* all(
                         rects[map.get(j)].fill('#e3242b', 0.2),
-                        rects[map.get(j+1)].fill('#2832c2', 0.2),
+                        rects[map.get(j + 1)].fill('#2832c2', 0.2),
                     );
                     break;
                 }
                 yield* all(
                     rects[map.get(j)].fill('#e3242b', 0.2),
-                    rects[map.get(j+1)].fill('#e3242b', 0.2),
+                    rects[map.get(j + 1)].fill('#e3242b', 0.2),
                 );
+                yield* code().selection(lines(7), 0.2);
+                if (!swapped) {
+                    yield* code().selection(lines(8), 0.2);
+                    yield* code().selection(lines(9), 0.2);
+                    yield* code().selection(DEFAULT, 0.2);
+                    for (let k = 0; k < randomNumbersListLength; k++) {
+                        yield* rects[map.get(k)].fill('#2be324', 0.15);
+                    }
+                    break;
+                }
             }
         }
     }
