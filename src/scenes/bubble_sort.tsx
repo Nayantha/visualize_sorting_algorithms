@@ -54,7 +54,16 @@ export default makeScene2D(function* (view) {
                 x={0}
                 y={-350}
                 offset={-1}
-            ></Rect>
+            >
+                <CodeBlock
+                    language={"python"}
+                    ref={code}
+                    fontSize={40}
+                    offsetX={-1}
+                    x={-1920 + 350}
+                    y={+1080/2 - 300}
+                />
+            </Rect>
         </>
     )
 });
