@@ -115,6 +115,11 @@ export default makeScene2D(function* (view) {
             rectangle_list[map.get(j + 1)].x(rectangle_list[map.get(j + 1)].x() - steps * space_x, 0.2),
             text_list[map.get(j + 1)].x(text_list[map.get(j + 1)].x() - steps * space_x, 0.2),
         )
+        yield* all(
+            rectangle_list[map.get(j + 1)].fill('#e3242b', 0.2),
+            rectangle_list[map.get(j + 1)].y(rectangle_list[map.get(j + 1)].y() + jump, 0.2),
+            text_list[map.get(j + 1)].y(text_list[map.get(j + 1)].y() + jump, 0.2),
+        );
     }
     yield* code().selection(DEFAULT, 0.2);
     for (let k = 0; k < randomNumbersListLength; k++) {
