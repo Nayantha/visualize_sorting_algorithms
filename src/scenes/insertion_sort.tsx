@@ -93,8 +93,8 @@ export default makeScene2D(function* (view) {
             yield* code().selection(lines(6), 0.2);
         }
         let temp = map.get(i);
-        yield* code().selection(lines(7), 0.2);
         map.set(i, search_index + 1)
         map.set(search_index + 1, temp)
+        yield* code().selection(lines(7, 10), 0.2);
     }
 })
