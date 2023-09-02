@@ -100,7 +100,9 @@ export default makeScene2D(function* (view) {
             yield* all(
                 code().selection(lines(3, 5), 0.2),
                 rectangle_list[search_index].x(rectangle_list[i].x(), 0.1),
+                text_list[search_index].x(text_list[i].x(), 0.1),
                 rectangle_list[i].x(current_search_element_x_coordinate, 0.1),
+                text_list[i].x(current_search_element_x_coordinate, 0.1),
             );
             search_index -= 1;
             yield* code().selection(lines(6), 0.2);
