@@ -1,5 +1,6 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
 import {createRef, createSignal, makeRef, range, useRandom} from "@motion-canvas/core";
+import {CodeBlock} from "@motion-canvas/2d/lib/components/CodeBlock";
 
 export default makeScene2D(function* (view) {
     view.fill('#141414');
@@ -41,6 +42,7 @@ export default makeScene2D(function* (view) {
     )
     //</editor-fold>
     const codeWrapper = createRef<Rect>();
+    const code = createRef<CodeBlock>();
     yield view.add(
         <Rect
             ref={codeWrapper}
@@ -49,6 +51,18 @@ export default makeScene2D(function* (view) {
             x={0}
             y={-350}
             offset={-1}
-        ></Rect>
+        >
+            <CodeBlock
+                language={"python"}
+                ref={code}
+                fontSize={40}
+                offsetX={-1}
+                x={-1920 + 350}
+                y={+1080 / 2 - 300}
+                fontFamily={'JetBrains Mono'}
+                code={() => ``
+                }
+            />
+        </Rect>
     );
 })
