@@ -106,6 +106,7 @@ export default makeScene2D(function* (view) {
         yield* all(
             code().selection(lines(7, 10), 0.2),
             rectangle_list[i].y(rectangle_list[i].y() - jump, 0.1),
+            text_list[i].y(rectangle_list[i].y() - jump, 0.1),
             );
         for (let i = 0; i < randomNumbersListLength; i++) {
             yield* rectangle_list[i].fill("#e3242b", 0.05);
