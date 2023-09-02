@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
-import {createRef, createSignal, DEFAULT, makeRef, range, useRandom} from "@motion-canvas/core";
+import {all, createRef, createSignal, DEFAULT, makeRef, range, useRandom} from "@motion-canvas/core";
 import {CodeBlock, lines} from "@motion-canvas/2d/lib/components/CodeBlock";
 
 export default makeScene2D(function* (view) {
@@ -87,6 +87,12 @@ export default makeScene2D(function* (view) {
     for (let i = 1; i < randomNumbersListLength; i++) {
         let key = parseInt(text_list[map.get(i)].text());
         let j = i - 1;
+        yield* all(
+            code().selection(lines(2), 0.1),
+            rectangle_list[map.get(i)].fill('#e6a700', 0.1),
+            rectangle_list[map.get(i)].y(rectangle_list[map.get(i)].y() - jump, 0.2),
+            text_list[map.get(i)].y(text_list[map.get(i)].y() - jump, 0.2),
+        );
     }
     yield* code().selection(DEFAULT, 0.2);
     for (let k = 0; k < randomNumbersListLength; k++) {
