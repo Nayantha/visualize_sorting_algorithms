@@ -96,6 +96,11 @@ export default makeScene2D(function* (view) {
         yield* code().selection(lines(3), 0.2);
         yield* code().selection(lines(4), 0.2);
         while (j >= 0 && key < parseInt(text_list[map.get(j)].text())){
+            yield* all(
+                code().selection(lines(5), 0.1),
+                rectangle_list[map.get(j)].x(rectangle_list[map.get(j)].x() + space_x, 0.2),
+                text_list[map.get(j)].x(text_list[map.get(j)].x() + space_x, 0.2),
+            );
             j -= 1;
         }
     }
