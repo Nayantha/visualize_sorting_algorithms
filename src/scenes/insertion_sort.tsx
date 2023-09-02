@@ -84,7 +84,10 @@ export default makeScene2D(function* (view) {
     }
     //</editor-fold>
     const jump = 175;
-
+    for (let i = 1; i < randomNumbersListLength; i++) {
+        let key = parseInt(text_list[map.get(i)].text());
+        let j = i - 1;
+    }
     yield* code().selection(DEFAULT, 0.2);
     for (let k = 0; k < randomNumbersListLength; k++) {
         yield* rectangle_list[k].fill('#2be324', 0.15);
