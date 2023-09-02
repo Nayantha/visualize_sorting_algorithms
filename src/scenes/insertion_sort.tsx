@@ -101,6 +101,9 @@ export default makeScene2D(function* (view) {
                 rectangle_list[map.get(j)].x(rectangle_list[map.get(j)].x() + space_x, 0.2),
                 text_list[map.get(j)].x(text_list[map.get(j)].x() + space_x, 0.2),
             );
+            let temp = map.get(j + 1);
+            map.set(j + 1, map.get(j));
+            map.set(j, temp);
             j -= 1;
         }
     }
