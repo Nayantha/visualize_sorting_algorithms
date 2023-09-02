@@ -1,4 +1,4 @@
-import {makeScene2D, Rect} from "@motion-canvas/2d";
+import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
 import {createSignal, makeRef, range, useRandom} from "@motion-canvas/core";
 
 export default makeScene2D(function* (view) {
@@ -20,6 +20,22 @@ export default makeScene2D(function* (view) {
                 fill="#e3242b"
                 radius={10}
                 y={-275}
+            />
+        ))
+    )
+    //</editor-fold>
+    //<editor-fold desc="Add random number strings">
+    const text_list: Txt[] = [];
+    view.add(
+        range(randomNumbersListLength).map(i => (
+            <Txt
+                ref={makeRef(text_list, i)}
+                fontSize={75}
+                fontFamily={'JetBrains Mono'}
+                text={signals[i]().toString()}
+                x={rectangle_list[i].x()}
+                y={-275}
+                fill={'#f0f0f0'}
             />
         ))
     )
