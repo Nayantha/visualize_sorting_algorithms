@@ -58,7 +58,7 @@ export default makeScene2D(function* (view) {
                 ref={code}
                 fontSize={40}
                 offsetX={-1}
-                x={-1920 + 350}
+                x={-1920 + 40}
                 y={+1080 / 2 - 300}
                 fontFamily={'JetBrains Mono'}
                 code={() => `def insertion_sort(array_to_be_sorted: list[int]):
