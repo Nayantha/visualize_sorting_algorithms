@@ -78,7 +78,7 @@ export default makeScene2D(function* (view) {
     yield* code().selection(lines(0), 0.2);
     yield* code().selection(lines(1), 0.2);
     let map: Map<number, number> = new Map();
-    const jump = 180;
+    const jump = 175;
     for (let i = 0; i < randomNumbersListLength; i++) {
         map.set(i, i);
     }
