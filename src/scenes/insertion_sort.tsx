@@ -98,4 +98,7 @@ export default makeScene2D(function* (view) {
         yield* code().selection(lines(7, 10), 0.2);
     }
     yield* code().selection(DEFAULT, 0.2);
+    for (let k = 0; k < randomNumbersListLength; k++) {
+        yield* rectangle_list[map.get(k)].fill('#2be324', 0.15);
+    }
 })
