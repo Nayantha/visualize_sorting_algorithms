@@ -96,7 +96,12 @@ export default makeScene2D(function* (view) {
             rectangle_list[search_index].fill("#e6a700", 0.2),
         );
         while (search_index >= 0 && text_list[map.get(i)].text() < text_list[map.get(search_index)].text()) {
-            yield* code().selection(lines(3, 5), 0.2);
+            const current_search_element_x_coordinate = rectangle_list[search_index].x();
+            yield* all(
+                code().selection(lines(3, 5), 0.2),
+                rectangle_list[search_index].x(rectangle_list[i].x(), 0.1),
+                rectangle_list[i].x(current_search_element_x_coordinate, 0.1),
+            );
             search_index -= 1;
             yield* code().selection(lines(6), 0.2);
         }
