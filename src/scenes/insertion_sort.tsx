@@ -21,7 +21,7 @@ export default makeScene2D(function* (view) {
                 x={-space_x * (randomNumbersListLength - 1) / 2 + space_x * i}
                 fill="#e3242b"
                 radius={10}
-                y={-275}
+                y={-225}
             />
         ))
     )
@@ -36,7 +36,7 @@ export default makeScene2D(function* (view) {
                 fontFamily={'JetBrains Mono'}
                 text={signals[i]().toString()}
                 x={rectangle_list[i].x()}
-                y={-275}
+                y={-225}
                 fill={'#f0f0f0'}
             />
         ))
