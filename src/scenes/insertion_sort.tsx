@@ -108,6 +108,7 @@ export default makeScene2D(function* (view) {
             yield* code().selection(lines(6), 0.2);
             yield* code().selection(lines(4), 0.2);
         }
+        yield* code().selection(lines(7), 0.2);
     }
     yield* code().selection(DEFAULT, 0.2);
     for (let k = 0; k < randomNumbersListLength; k++) {
