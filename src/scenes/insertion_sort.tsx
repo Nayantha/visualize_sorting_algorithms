@@ -95,7 +95,9 @@ export default makeScene2D(function* (view) {
         );
         yield* code().selection(lines(3), 0.2);
         yield* code().selection(lines(4), 0.2);
+        let steps = 0;
         while (j >= 0 && key < parseInt(text_list[map.get(j)].text())){
+            steps += 1;
             yield* all(
                 code().selection(lines(5), 0.1),
                 rectangle_list[map.get(j)].x(rectangle_list[map.get(j)].x() + space_x, 0.2),
@@ -109,6 +111,10 @@ export default makeScene2D(function* (view) {
             yield* code().selection(lines(4), 0.2);
         }
         yield* code().selection(lines(7), 0.2);
+        yield* all(
+            rectangle_list[map.get(j + 1)].x(rectangle_list[map.get(j + 1)].x() - steps * space_x, 0.2),
+            text_list[map.get(j + 1)].x(text_list[map.get(j + 1)].x() - steps * space_x, 0.2),
+        )
     }
     yield* code().selection(DEFAULT, 0.2);
     for (let k = 0; k < randomNumbersListLength; k++) {
