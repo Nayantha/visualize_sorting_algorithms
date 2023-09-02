@@ -106,6 +106,7 @@ export default makeScene2D(function* (view) {
             map.set(j, temp);
             j -= 1;
             yield* code().selection(lines(6), 0.2);
+            yield* code().selection(lines(4), 0.2);
         }
     }
     yield* code().selection(DEFAULT, 0.2);
