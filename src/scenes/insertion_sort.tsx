@@ -89,7 +89,10 @@ export default makeScene2D(function* (view) {
             rectangle_list[map.get(i)].fill("#e6a700", 0.2),
         );
         let search_index = i - 1;
-        yield* code().selection(lines(2), 0.2);
+        yield* all(
+            code().selection(lines(2), 0.2),
+            rectangle_list[search_index].fill("#e6a700", 0.2),
+        );
         while (search_index >= 0 && text_list[map.get(i)].text() < text_list[map.get(search_index)].text()) {
             yield* code().selection(lines(3, 5), 0.2);
             search_index -= 1;
