@@ -43,6 +43,7 @@ export default makeScene2D(function* (view) {
     //</editor-fold>
     const codeWrapper = createRef<Rect>();
     const code = createRef<CodeBlock>();
+    //<editor-fold desc="Add python code">
     yield view.add(
         <Rect
             ref={codeWrapper}
@@ -65,4 +66,5 @@ export default makeScene2D(function* (view) {
             />
         </Rect>
     );
+    //</editor-fold>
 })
