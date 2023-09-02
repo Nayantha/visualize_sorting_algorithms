@@ -58,14 +58,15 @@ export default makeScene2D(function* (view) {
                 ref={code}
                 fontSize={40}
                 offsetX={-1}
-                x={-1920 + 40}
+                x={-1920 + 150}
                 y={+1080 / 2 - 300}
                 fontFamily={'JetBrains Mono'}
                 code={() => `def insertion_sort(array_to_be_sorted: list[int]):
     for index in range(1, len(array_to_be_sorted)):
         number = array_to_be_sorted[index]
         search_index = index - 1
-        while search_index >= 0 and number < array_to_be_sorted[search_index]:
+        while search_index >= 0 \\
+                and number < array_to_be_sorted[search_index]:
             search_index -= 1
         array_to_be_sorted[index] = array_to_be_sorted[search_index + 1]
         array_to_be_sorted[search_index + 1] = number`
