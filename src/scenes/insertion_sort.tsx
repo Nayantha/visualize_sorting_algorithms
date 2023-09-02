@@ -95,6 +95,9 @@ export default makeScene2D(function* (view) {
         );
         yield* code().selection(lines(3), 0.2);
         yield* code().selection(lines(4), 0.2);
+        while (j >= 0 && key < parseInt(text_list[map.get(j)].text())){
+            j -= 1;
+        }
     }
     yield* code().selection(DEFAULT, 0.2);
     for (let k = 0; k < randomNumbersListLength; k++) {
