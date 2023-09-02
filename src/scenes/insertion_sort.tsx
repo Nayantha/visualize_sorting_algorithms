@@ -86,7 +86,7 @@ export default makeScene2D(function* (view) {
     for (let i = 1; i < randomNumbersListLength; i++) {
         yield* all(
             code().selection(lines(1), 0.2),
-            rectangle_list[map.get(i)].fill("#e6a700", 0.2),
+            rectangle_list[i].fill("#e6a700", 0.2),
         );
         let search_index = i - 1;
         yield* all(
