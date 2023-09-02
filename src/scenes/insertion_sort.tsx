@@ -62,17 +62,14 @@ export default makeScene2D(function* (view) {
                 x={-1920 + 350}
                 y={+1080 / 2 - 300}
                 fontFamily={'JetBrains Mono'}
-                code={() => `def insertion_sort(array_to_be_sorted: list[int]):
-    for index in range(1, len(array_to_be_sorted)):
-        search_index = index - 1
-        while search_index >= 0 \\
-                and array_to_be_sorted[index] < \\
-                array_to_be_sorted[search_index]:
-            search_index -= 1
-        array_to_be_sorted[index], \\
-        array_to_be_sorted[search_index + 1] = \\ 
-            array_to_be_sorted[search_index + 1], \\
-            array_to_be_sorted[index]`
+                code={() => `def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key`
                 }
             />
         </Rect>
