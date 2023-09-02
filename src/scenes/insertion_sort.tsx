@@ -11,13 +11,14 @@ export default makeScene2D(function* (view) {
     //</editor-fold>
     //<editor-fold desc="Add Rectangles to wrap the random numbers">
     const rectangle_list: Rect[] = [];
+    let space_x = 185;
     view.add(
         range(randomNumbersListLength).map(i => (
             <Rect
                 ref={makeRef(rectangle_list, i)}
                 width={150}
                 height={150}
-                x={-185 * (randomNumbersListLength - 1) / 2 + 185 * i}
+                x={-space_x * (randomNumbersListLength - 1) / 2 + space_x * i}
                 fill="#e3242b"
                 radius={10}
                 y={-275}
