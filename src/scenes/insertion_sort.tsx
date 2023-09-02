@@ -65,10 +65,13 @@ export default makeScene2D(function* (view) {
     for index in range(1, len(array_to_be_sorted)):
         search_index = index - 1
         while search_index >= 0 \\
-                and array_to_be_sorted[index] < array_to_be_sorted[search_index]:
+                and array_to_be_sorted[index] < \\
+                array_to_be_sorted[search_index]:
             search_index -= 1
-        array_to_be_sorted[index], array_to_be_sorted[search_index + 1] = \\ 
-            array_to_be_sorted[search_index + 1], array_to_be_sorted[index]`
+        array_to_be_sorted[index], \\
+        array_to_be_sorted[search_index + 1] = \\ 
+            array_to_be_sorted[search_index + 1], \\
+            array_to_be_sorted[index]`
                 }
             />
         </Rect>
