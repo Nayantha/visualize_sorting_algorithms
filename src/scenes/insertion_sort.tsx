@@ -86,6 +86,7 @@ export default makeScene2D(function* (view) {
     for (let i = 1; i < randomNumbersListLength; i++) {
         yield* code().selection(lines(1), 0.2);
         let search_index = i - 1;
+        yield* code().selection(lines(2), 0.2);
         while (search_index >= 0 && text_list[map.get(i)] < text_list[map.get(search_index)])
             search_index -= 1;
         let temp = map.get(i);
