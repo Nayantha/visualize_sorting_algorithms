@@ -99,6 +99,9 @@ export default makeScene2D(function* (view) {
         map.set(i, search_index + 1)
         map.set(search_index + 1, temp)
         yield* code().selection(lines(7, 10), 0.2);
+        for (let i = 1; i < randomNumbersListLength; i++) {
+            yield* rectangle_list[i].fill("#e3242b", 0.05);
+        }
     }
     yield* code().selection(DEFAULT, 0.2);
     for (let k = 0; k < randomNumbersListLength; k++) {
