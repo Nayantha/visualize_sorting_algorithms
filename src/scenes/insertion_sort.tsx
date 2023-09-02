@@ -87,8 +87,10 @@ export default makeScene2D(function* (view) {
         yield* code().selection(lines(1), 0.2);
         let search_index = i - 1;
         yield* code().selection(lines(2), 0.2);
-        while (search_index >= 0 && text_list[map.get(i)].text() < text_list[map.get(search_index)].text())
+        while (search_index >= 0 && text_list[map.get(i)].text() < text_list[map.get(search_index)].text()) {
+            yield code().selection(lines(3, 5), 0.2);
             search_index -= 1;
+        }
         let temp = map.get(i);
         map.set(i, search_index + 1)
         map.set(search_index + 1, temp)
