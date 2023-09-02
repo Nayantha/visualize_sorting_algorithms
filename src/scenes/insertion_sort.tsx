@@ -80,13 +80,14 @@ export default makeScene2D(function* (view) {
     yield* waitFor(0.5);
     yield code().selection(lines(0), 0.2);
     let map: Map<number, number> = new Map();
+    const jump = 90;
     for (let i = 0; i < randomNumbersListLength; i++) {
         map.set(i, i);
     }
     for (let i = 1; i < randomNumbersListLength; i++) {
         yield* all(
             code().selection(lines(1), 0.2),
-            rectangle_list[i].fill("#e6a700", 0.2),
+            rectangle_list[i].y(rectangle_list[i].y() +jump, 0.1),
         );
         let search_index = i - 1;
         yield* all(
