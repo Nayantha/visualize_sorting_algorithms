@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
-import {createRef, createSignal, makeRef, range, useRandom, waitFor} from "@motion-canvas/core";
+import {createRef, createSignal, DEFAULT, makeRef, range, useRandom, waitFor} from "@motion-canvas/core";
 import {CodeBlock, lines} from "@motion-canvas/2d/lib/components/CodeBlock";
 
 export default makeScene2D(function* (view) {
@@ -97,4 +97,5 @@ export default makeScene2D(function* (view) {
         map.set(search_index + 1, temp)
         yield* code().selection(lines(7, 10), 0.2);
     }
+    yield* code().selection(DEFAULT, 0.2);
 })
