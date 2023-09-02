@@ -120,6 +120,7 @@ export default makeScene2D(function* (view) {
             rectangle_list[map.get(j + 1)].y(rectangle_list[map.get(j + 1)].y() + jump, 0.2),
             text_list[map.get(j + 1)].y(text_list[map.get(j + 1)].y() + jump, 0.2),
         );
+        yield* code().selection(lines(1), 0.2);
     }
     yield* code().selection(DEFAULT, 0.2);
     for (let k = 0; k < randomNumbersListLength; k++) {
