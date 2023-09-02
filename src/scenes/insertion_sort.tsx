@@ -77,4 +77,8 @@ export default makeScene2D(function* (view) {
     //</editor-fold>
     yield* waitFor(0.5);
     yield code().selection(lines(0), 0.2);
+    let map: Map<number, number> = new Map();
+    for (let i = 0; i < randomNumbersListLength; i++) {
+        map.set(i, i);
+    }
 })
