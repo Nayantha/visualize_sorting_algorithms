@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
-import {createSignal, makeRef, range, useRandom} from "@motion-canvas/core";
+import {createRef, createSignal, makeRef, range, useRandom} from "@motion-canvas/core";
 
 export default makeScene2D(function* (view) {
     view.fill('#141414');
@@ -40,4 +40,15 @@ export default makeScene2D(function* (view) {
         ))
     )
     //</editor-fold>
+    const codeWrapper = createRef<Rect>();
+    yield view.add(
+        <Rect
+            ref={codeWrapper}
+            width={1920}
+            height={720}
+            x={0}
+            y={-350}
+            offset={-1}
+        ></Rect>
+    );
 })
