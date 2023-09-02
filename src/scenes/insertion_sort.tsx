@@ -88,6 +88,7 @@ export default makeScene2D(function* (view) {
         yield* all(
             code().selection(lines(1), 0.2),
             rectangle_list[i].y(rectangle_list[i].y() + jump, 0.1),
+            text_list[i].y(rectangle_list[i].y() + jump, 0.1),
         );
         let search_index = i - 1;
         yield* all(
