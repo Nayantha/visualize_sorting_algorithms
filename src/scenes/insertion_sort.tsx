@@ -81,4 +81,12 @@ export default makeScene2D(function* (view) {
     for (let i = 0; i < randomNumbersListLength; i++) {
         map.set(i, i);
     }
+    for (let i = 1; i < randomNumbersListLength; i++) {
+        let search_index = i - 1;
+        while (search_index >= 0 && text_list[map.get(i)] < text_list[map.get(search_index)])
+            search_index -= 1;
+        let temp = map.get(i);
+        map.set(i, search_index + 1)
+        map.set(search_index + 1, temp)
+    }
 })
