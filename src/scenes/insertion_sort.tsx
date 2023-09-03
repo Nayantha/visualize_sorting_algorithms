@@ -102,6 +102,8 @@ export default makeScene2D(function* (view) {
                 code().selection(lines(5), 0.1),
                 rectangle_list[map.get(j)].x(rectangle_list[map.get(j)].x() + space_x, 0.2),
                 text_list[map.get(j)].x(text_list[map.get(j)].x() + space_x, 0.2),
+                rectangle_list[map.get(j + 1)].x(rectangle_list[map.get(j + 1)].x() - space_x, 0.2),
+                text_list[map.get(j + 1)].x(text_list[map.get(j + 1)].x() - space_x, 0.2),
             );
             let temp = map.get(j + 1);
             map.set(j + 1, map.get(j));
@@ -111,10 +113,6 @@ export default makeScene2D(function* (view) {
             yield* code().selection(lines(4), 0.2);
         }
         yield* code().selection(lines(7), 0.2);
-        yield* all(
-            rectangle_list[map.get(j + 1)].x(rectangle_list[map.get(j + 1)].x() - steps * space_x, 0.2),
-            text_list[map.get(j + 1)].x(text_list[map.get(j + 1)].x() - steps * space_x, 0.2),
-        )
         yield* all(
             rectangle_list[map.get(j + 1)].fill('#e3242b', 0.2),
             rectangle_list[map.get(j + 1)].y(rectangle_list[map.get(j + 1)].y() + jump, 0.2),
