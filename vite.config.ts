@@ -8,7 +8,8 @@ export default defineConfig({
             project: [
                 './src/projects/project.ts',
                 './src/projects/bubble_sort.ts',
-                './src/projects/insertion_sort.ts'
+                './src/projects/insertion_sort.ts',
+                './src/projects/section_sort.ts'
             ],
         }
        ),
