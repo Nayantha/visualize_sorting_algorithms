@@ -4,6 +4,7 @@ import {makeRef, range} from "@motion-canvas/core";
 export default makeScene2D(function* (view) {
     view.fill('#141414');
     const num_of_items_in_list = 7;
+    //<editor-fold desc="Add text wrappers / Rects">
     const text_wrappers: Rect[] = [];
     view.add(
         range(num_of_items_in_list).map(i => (
@@ -18,4 +19,5 @@ export default makeScene2D(function* (view) {
             />
         ))
     )
+    //</editor-fold>
 })
