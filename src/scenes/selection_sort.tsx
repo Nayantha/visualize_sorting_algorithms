@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
-import {createRef, createSignal, DEFAULT, makeRef, range, useRandom} from "@motion-canvas/core";
+import {all, createRef, createSignal, DEFAULT, makeRef, range, useRandom} from "@motion-canvas/core";
 import {CodeBlock, lines} from "@motion-canvas/2d/lib/components/CodeBlock";
 
 export default makeScene2D(function* (view) {
@@ -81,6 +81,11 @@ export default makeScene2D(function* (view) {
     }
     //</editor-fold>
     // const jump = 175;
+    for (let i = 0; i < number_of_items_to_be_sorted; i++) {
+        yield* all(
+            text_wrappers[map.get(i)].fill('#e6a700', 0.2),
+        );
+    }
     yield* code().selection(DEFAULT, 0.2);
     //<editor-fold desc="Convert The background Rect color to green">
     for (let k = 0; k < number_of_items_to_be_sorted; k++) {
