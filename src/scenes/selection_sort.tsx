@@ -62,14 +62,11 @@ export default makeScene2D(function* (view) {
                 x={-1920 + 350}
                 y={+1080 / 2 - 300}
                 fontFamily={'JetBrains Mono'}
-                code={() => `def insertion_sort(arr):
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
-        while j >= 0 and arr[j] > key:
-            arr[j + 1] = arr[j]
-            j -= 1
-        arr[j + 1] = key`
+                code={() => `def selection_sort(arr: list[int]):
+    for i in range(len(arr)):
+        for j in range(i + 1, len(arr)):
+            if arr[i] > arr[j]:
+                arr[j], arr[i] = arr[i], arr[j]`
                 }
             />
         </Rect>
