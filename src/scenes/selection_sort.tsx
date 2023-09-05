@@ -5,20 +5,20 @@ import {CodeBlock, lines} from "@motion-canvas/2d/lib/components/CodeBlock";
 export default makeScene2D(function* (view) {
     view.fill('#141414');
     //<editor-fold desc="generate random number list">
-    const randomNumbersListLength = 10;
+    const number_of_items_to_be_sorted = 10;
     const random = useRandom();
-    const signals = range(randomNumbersListLength).map(_ => createSignal(random.nextInt(1, 100)));
+    const signals = range(number_of_items_to_be_sorted).map(_ => createSignal(random.nextInt(1, 100)));
     //</editor-fold>
     //<editor-fold desc="Add Rectangles to wrap the random numbers">
     const rectangle_list: Rect[] = [];
     let space_x = 185;
     view.add(
-        range(randomNumbersListLength).map(i => (
+        range(number_of_items_to_be_sorted).map(i => (
             <Rect
                 ref={makeRef(rectangle_list, i)}
                 width={150}
                 height={150}
-                x={-space_x * (randomNumbersListLength - 1) / 2 + space_x * i}
+                x={-space_x * (number_of_items_to_be_sorted - 1) / 2 + space_x * i}
                 fill="#e3242b"
                 radius={10}
                 y={-225}
@@ -29,7 +29,7 @@ export default makeScene2D(function* (view) {
     //<editor-fold desc="Add random number strings">
     const text_list: Txt[] = [];
     view.add(
-        range(randomNumbersListLength).map(i => (
+        range(number_of_items_to_be_sorted).map(i => (
             <Txt
                 ref={makeRef(text_list, i)}
                 fontSize={75}
@@ -79,13 +79,13 @@ export default makeScene2D(function* (view) {
     yield* code().selection(lines(1), 0.2);
     //<editor-fold desc="generate map">
     let map: Map<number, number> = new Map();
-    for (let i = 0; i < randomNumbersListLength; i++) {
+    for (let i = 0; i < number_of_items_to_be_sorted; i++) {
         map.set(i, i);
     }
     //</editor-fold>
     // const jump = 175;
     yield* code().selection(DEFAULT, 0.2);
-    for (let k = 0; k < randomNumbersListLength; k++) {
+    for (let k = 0; k < number_of_items_to_be_sorted; k++) {
         yield* rectangle_list[map.get(k)].fill('#2be324', 0.15);
     }
 })
