@@ -88,6 +88,9 @@ export default makeScene2D(function* (view) {
         yield* all(
             text_wrappers[map.get(i)].fill('#e6a700', 0.2),
         );
+        for (let j = i + 1; j < number_of_items_to_be_sorted; j++) {
+
+        }
     }
     yield* text_wrappers[map.get(number_of_items_to_be_sorted-1)].fill("#e3242b", 0.2)
     yield* code().selection(DEFAULT, 0.2);
