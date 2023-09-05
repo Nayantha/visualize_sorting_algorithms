@@ -1,7 +1,7 @@
 import {makeProject} from '@motion-canvas/core';
 
-import section_sort from "../scenes/section_sort?scene";
+import selection_sort from "../scenes/selection_sort?scene";
 
 export default makeProject({
-    scenes: [section_sort],
+    scenes: [selection_sort],
 });
