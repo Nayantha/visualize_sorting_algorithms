@@ -89,6 +89,7 @@ export default makeScene2D(function* (view) {
             text_wrappers[map.get(i)].fill('#e6a700', 0.2),
         );
     }
+    yield* text_wrappers[map.get(number_of_items_to_be_sorted-1)].fill("#e3242b", 0.2)
     yield* code().selection(DEFAULT, 0.2);
     //<editor-fold desc="Convert The background Rect color to green">
     for (let k = 0; k < number_of_items_to_be_sorted; k++) {
