@@ -82,6 +82,9 @@ export default makeScene2D(function* (view) {
     //</editor-fold>
     // const jump = 175;
     for (let i = 0; i < number_of_items_to_be_sorted; i++) {
+        if (i - 1 > -1) {
+            yield* text_wrappers[map.get(i-1)].fill("#e3242b", 0.2)
+        }
         yield* all(
             text_wrappers[map.get(i)].fill('#e6a700', 0.2),
         );
