@@ -1,5 +1,5 @@
 import {makeScene2D, Rect} from "@motion-canvas/2d";
-import {makeRef, range} from "@motion-canvas/core";
+import {createSignal, makeRef, range, useRandom} from "@motion-canvas/core";
 
 export default makeScene2D(function* (view) {
     view.fill('#141414');
@@ -20,4 +20,6 @@ export default makeScene2D(function* (view) {
         ))
     )
     //</editor-fold>
+    const random = useRandom();
+    const signals = range(num_of_items_in_list).map(_ => createSignal(random.nextInt(1, 100)))
 })
