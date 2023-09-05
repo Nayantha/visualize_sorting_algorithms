@@ -10,12 +10,12 @@ export default makeScene2D(function* (view) {
     const signals = range(number_of_items_to_be_sorted).map(_ => createSignal(random.nextInt(1, 100)));
     //</editor-fold>
     //<editor-fold desc="Add Rectangles to wrap the random numbers">
-    const rectangle_list: Rect[] = [];
+    const text_wrappers: Rect[] = [];
     let space_x = 185;
     view.add(
         range(number_of_items_to_be_sorted).map(i => (
             <Rect
-                ref={makeRef(rectangle_list, i)}
+                ref={makeRef(text_wrappers, i)}
                 width={150}
                 height={150}
                 x={-space_x * (number_of_items_to_be_sorted - 1) / 2 + space_x * i}
@@ -35,7 +35,7 @@ export default makeScene2D(function* (view) {
                 fontSize={75}
                 fontFamily={'JetBrains Mono'}
                 text={signals[i]().toString()}
-                x={rectangle_list[i].x()}
+                x={text_wrappers[i].x()}
                 y={-225}
                 fill={'#f0f0f0'}
             />
@@ -86,6 +86,6 @@ export default makeScene2D(function* (view) {
     // const jump = 175;
     yield* code().selection(DEFAULT, 0.2);
     for (let k = 0; k < number_of_items_to_be_sorted; k++) {
-        yield* rectangle_list[map.get(k)].fill('#2be324', 0.15);
+        yield* text_wrappers[map.get(k)].fill('#2be324', 0.15);
     }
 })
