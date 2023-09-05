@@ -27,11 +27,11 @@ export default makeScene2D(function* (view) {
     )
     //</editor-fold>
     //<editor-fold desc="Add random number strings">
-    const text_list: Txt[] = [];
+    const random_number_text_list: Txt[] = [];
     view.add(
         range(number_of_items_to_be_sorted).map(i => (
             <Txt
-                ref={makeRef(text_list, i)}
+                ref={makeRef(random_number_text_list, i)}
                 fontSize={75}
                 fontFamily={'JetBrains Mono'}
                 text={signals[i]().toString()}
