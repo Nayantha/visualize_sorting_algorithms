@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
-import {createRef, createSignal, DEFAULT, makeRef, range, useRandom} from "@motion-canvas/core";
+import {all, createRef, createSignal, DEFAULT, makeRef, range, useRandom} from "@motion-canvas/core";
 import {CodeBlock, lines} from "@motion-canvas/2d/lib/components/CodeBlock";
 
 export default makeScene2D(function* (view) {
@@ -82,6 +82,10 @@ export default makeScene2D(function* (view) {
     //</editor-fold>
     const jump = 175;
     for (let i = 0; i < number_of_items_to_be_sorted; i++) {
+        yield* all(
+            text_wrappers[map.get(i)].y(text_wrappers[map.get(i)].y() - jump, 0.1),
+            random_number_text_list[map.get(i)].y(random_number_text_list[map.get(i)].y() - jump, 0.1),
+        );
         for (let j = i + 1; j < number_of_items_to_be_sorted; j++) {
             if (
                 parseInt(random_number_text_list[map.get(i)].text()) > parseInt(random_number_text_list[map.get(j)].text())
