@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
-import {all, createRef, createSignal, DEFAULT, makeRef, range, useRandom} from "@motion-canvas/core";
+import {createRef, createSignal, DEFAULT, makeRef, range, useRandom} from "@motion-canvas/core";
 import {CodeBlock, lines} from "@motion-canvas/2d/lib/components/CodeBlock";
 
 export default makeScene2D(function* (view) {
@@ -82,43 +82,15 @@ export default makeScene2D(function* (view) {
     //</editor-fold>
     const jump = 175;
     for (let i = 0; i < number_of_items_to_be_sorted; i++) {
-        yield* all(
-            text_wrappers[map.get(i)].y(text_wrappers[map.get(i)].y() - jump, 0.2),
-            random_number_text_list[map.get(i)].y(random_number_text_list[map.get(i)].y() - jump, 0.2),
-        );
         for (let j = i + 1; j < number_of_items_to_be_sorted; j++) {
             if (
                 parseInt(random_number_text_list[map.get(i)].text()) > parseInt(random_number_text_list[map.get(j)].text())
-            ){
+            ) {
                 const temp = map.get(j)
                 map.set(j, map.get(i))
-                map.set(i, temp)
-                yield* all(
-                    text_wrappers[map.get(i)].y(text_wrappers[map.get(i)].y() - jump, 0.2),
-                    random_number_text_list[map.get(i)].y(random_number_text_list[map.get(i)].y() - jump, 0.2),
-                    text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() + jump * 2, 0.2),
-                    random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() + jump * 2, 0.2),
-                );
-            //     i - min element index
-            //     j - other element
-                for (let k = j; k > i; k--) {
-                    yield* all(
-                        text_wrappers[map.get(j)].x(text_wrappers[map.get(j)].x() + space_x, 0.2),
-                        random_number_text_list[map.get(j)].x(random_number_text_list[map.get(j)].x() + space_x, 0.2),
-                    );
-                }
-                for (let k = i; k < j; k++) {
-                    yield* all(
-                        text_wrappers[map.get(i)].x(text_wrappers[map.get(i)].x() - space_x, 0.2),
-                        random_number_text_list[map.get(i)].x(random_number_text_list[map.get(i)].x() - space_x, 0.2),
-                    );
-                }
+                map.set(i, temp);
             }
         }
-        yield* all(
-            text_wrappers[map.get(i)].y(text_wrappers[map.get(i)].y() + jump, 0.2),
-            random_number_text_list[map.get(i)].y(random_number_text_list[map.get(i)].y() + jump, 0.2),
-        )
     }
     yield* text_wrappers[map.get(number_of_items_to_be_sorted-1)].fill("#e3242b", 0.2);
     yield* code().selection(DEFAULT, 0.2);
