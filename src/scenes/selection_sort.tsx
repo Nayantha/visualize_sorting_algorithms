@@ -92,11 +92,11 @@ export default makeScene2D(function* (view) {
             if (
                 parseInt(random_number_text_list[map.get(i)].text()) > parseInt(random_number_text_list[map.get(j)].text())
             ) {
-                yield* code().selection(lines(4), 0.2);
                 yield* all(
                     text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() + jump, 0.1),
                     random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() + jump, 0.1),
                 )
+                yield* code().selection(lines(4), 0.2);
                 //<editor-fold desc="move minimum to front and the previous minimum to the back of the array">
                 for (let k = i; k < j; k++) {
                     yield* all(
