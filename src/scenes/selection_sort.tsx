@@ -99,6 +99,14 @@ export default makeScene2D(function* (view) {
                     text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() + jump * 2, 0.2),
                     random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() + jump * 2, 0.2),
                 );
+            //     i - min element index
+            //     j - other element
+                for (let k = j; k > i; k--) {
+                    yield* all(
+                        text_wrappers[map.get(j)].x(text_wrappers[map.get(j)].x() + 185, 0.2),
+                        random_number_text_list[map.get(j)].x(random_number_text_list[map.get(j)].x() + 185, 0.2),
+                    );
+                }
             }
         }
         yield* all(
