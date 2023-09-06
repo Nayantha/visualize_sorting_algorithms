@@ -11,6 +11,7 @@ export default makeScene2D(function* (view) {
     //</editor-fold>
     //<editor-fold desc="Add Rectangles to wrap the random numbers">
     const text_wrappers: Rect[] = [];
+    let space_x = 185;
     view.add(
         range(number_of_items_to_be_sorted).map(i => (
             <Rect
@@ -80,7 +81,6 @@ export default makeScene2D(function* (view) {
     }
     //</editor-fold>
     const jump = 175;
-    const space_x = 185;
     for (let i = 0; i < number_of_items_to_be_sorted; i++) {
         yield* all(
             text_wrappers[map.get(i)].y(text_wrappers[map.get(i)].y() - jump, 0.2),
