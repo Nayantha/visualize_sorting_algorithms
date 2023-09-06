@@ -11,7 +11,6 @@ export default makeScene2D(function* (view) {
     //</editor-fold>
     //<editor-fold desc="Add Rectangles to wrap the random numbers">
     const text_wrappers: Rect[] = [];
-    let space_x = 185;
     view.add(
         range(number_of_items_to_be_sorted).map(i => (
             <Rect
@@ -81,6 +80,7 @@ export default makeScene2D(function* (view) {
     }
     //</editor-fold>
     const jump = 175;
+    const space_x = 185;
     for (let i = 0; i < number_of_items_to_be_sorted; i++) {
         yield* all(
             text_wrappers[map.get(i)].y(text_wrappers[map.get(i)].y() - jump, 0.2),
@@ -103,14 +103,14 @@ export default makeScene2D(function* (view) {
             //     j - other element
                 for (let k = j; k > i; k--) {
                     yield* all(
-                        text_wrappers[map.get(j)].x(text_wrappers[map.get(j)].x() + 185, 0.2),
-                        random_number_text_list[map.get(j)].x(random_number_text_list[map.get(j)].x() + 185, 0.2),
+                        text_wrappers[map.get(j)].x(text_wrappers[map.get(j)].x() + space_x, 0.2),
+                        random_number_text_list[map.get(j)].x(random_number_text_list[map.get(j)].x() + space_x, 0.2),
                     );
                 }
                 for (let k = i; k < j; k++) {
                     yield* all(
-                        text_wrappers[map.get(i)].x(text_wrappers[map.get(i)].x() - 185, 0.2),
-                        random_number_text_list[map.get(i)].x(random_number_text_list[map.get(i)].x() - 185, 0.2),
+                        text_wrappers[map.get(i)].x(text_wrappers[map.get(i)].x() - space_x, 0.2),
+                        random_number_text_list[map.get(i)].x(random_number_text_list[map.get(i)].x() - space_x, 0.2),
                     );
                 }
             }
