@@ -107,6 +107,12 @@ export default makeScene2D(function* (view) {
                         random_number_text_list[map.get(j)].x(random_number_text_list[map.get(j)].x() + 185, 0.2),
                     );
                 }
+                for (let k = i; k < j; k++) {
+                    yield* all(
+                        text_wrappers[map.get(i)].x(text_wrappers[map.get(i)].x() - 185, 0.2),
+                        random_number_text_list[map.get(i)].x(random_number_text_list[map.get(i)].x() - 185, 0.2),
+                    );
+                }
             }
         }
         yield* all(
