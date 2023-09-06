@@ -86,17 +86,17 @@ export default makeScene2D(function* (view) {
             text_wrappers[map.get(i)].y(text_wrappers[map.get(i)].y() - jump, 0.1),
             random_number_text_list[map.get(i)].y(random_number_text_list[map.get(i)].y() - jump, 0.1),
         );
-        yield* code().selection(lines(2), 0.2);
         for (let j = i + 1; j < number_of_items_to_be_sorted; j++) {
-            yield* code().selection(lines(3), 0.2);
+            yield* code().selection(lines(2), 0.2);
             if (
                 parseInt(random_number_text_list[map.get(i)].text()) > parseInt(random_number_text_list[map.get(j)].text())
             ) {
+                yield* code().selection(lines(3), 0.2);
                 yield* all(
                     text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() + jump, 0.1),
                     random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() + jump, 0.1),
                 )
-                yield* code().selection(lines(4), 0.2);
+                // yield* code().selection(lines(4), 0.2);
                 //<editor-fold desc="move minimum to front and the previous minimum to the back of the array">
                 yield* all(
                     text_wrappers[map.get(i)].x(text_wrappers[map.get(i)].x() + space_x * (j - i), 0.1),
