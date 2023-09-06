@@ -94,8 +94,10 @@ export default makeScene2D(function* (view) {
                 map.set(j, map.get(i))
                 map.set(i, temp)
                 yield* all(
-                    text_wrappers[map.get(i)].fill('#e6a700', 0.2),
-                    text_wrappers[map.get(j)].fill("#e3242b", 0.2),
+                    text_wrappers[map.get(i)].y(text_wrappers[map.get(i)].y() - jump, 0.2),
+                    random_number_text_list[map.get(i)].y(random_number_text_list[map.get(i)].y() - jump, 0.2),
+                    text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() + jump, 0.2),
+                    random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() + jump, 0.2),
                 );
             }
         }
