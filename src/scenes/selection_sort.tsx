@@ -80,10 +80,11 @@ export default makeScene2D(function* (view) {
         map.set(i, i);
     }
     //</editor-fold>
-    // const jump = 175;
+    const jump = 175;
     for (let i = 0; i < number_of_items_to_be_sorted; i++) {
         yield* all(
-            text_wrappers[map.get(i)].fill('#e6a700', 0.2),
+            text_wrappers[map.get(i)].y(text_wrappers[map.get(i)].y() - jump, 0.2),
+            random_number_text_list[map.get(i)].y(random_number_text_list[map.get(i)].y() - jump, 0.2),
         );
         for (let j = i + 1; j < number_of_items_to_be_sorted; j++) {
             if (
