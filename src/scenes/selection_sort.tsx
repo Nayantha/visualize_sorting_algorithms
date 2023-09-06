@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt} from "@motion-canvas/2d";
-import {all, createRef, createSignal, DEFAULT, makeRef, range, useRandom, waitFor} from "@motion-canvas/core";
+import {all, createRef, createSignal, DEFAULT, makeRef, range, useRandom} from "@motion-canvas/core";
 import {CodeBlock, lines} from "@motion-canvas/2d/lib/components/CodeBlock";
 
 export default makeScene2D(function* (view) {
@@ -121,7 +121,7 @@ export default makeScene2D(function* (view) {
                     text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() - jump, 0.1),
                     random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() - jump, 0.1),
                 );
-                yield* waitFor(0.2);
+                // yield* waitFor(0.2);
                 yield* all(
                     text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() - jump, 0.1),
                     random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() - jump, 0.1),
