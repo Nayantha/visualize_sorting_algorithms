@@ -111,6 +111,11 @@ export default makeScene2D(function* (view) {
                     text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() - jump, 0.1),
                     random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() - jump, 0.1),
                 )
+                yield* waitFor(0.2);
+                yield* all(
+                text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() - jump, 0.1),
+                    random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() - jump, 0.1),
+                )
                 const temp = map.get(j)
                 map.set(j, map.get(i))
                 map.set(i, temp);
