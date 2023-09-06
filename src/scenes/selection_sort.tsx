@@ -88,6 +88,7 @@ export default makeScene2D(function* (view) {
         );
         yield* code().selection(lines(2), 0.2);
         for (let j = i + 1; j < number_of_items_to_be_sorted; j++) {
+            yield* code().selection(lines(3), 0.2);
             if (
                 parseInt(random_number_text_list[map.get(i)].text()) > parseInt(random_number_text_list[map.get(j)].text())
             ) {
