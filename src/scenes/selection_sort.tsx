@@ -96,8 +96,8 @@ export default makeScene2D(function* (view) {
                 yield* all(
                     text_wrappers[map.get(i)].y(text_wrappers[map.get(i)].y() - jump, 0.2),
                     random_number_text_list[map.get(i)].y(random_number_text_list[map.get(i)].y() - jump, 0.2),
-                    text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() + jump, 0.2),
-                    random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() + jump, 0.2),
+                    text_wrappers[map.get(j)].y(text_wrappers[map.get(j)].y() + jump * 2, 0.2),
+                    random_number_text_list[map.get(j)].y(random_number_text_list[map.get(j)].y() + jump * 2, 0.2),
                 );
             }
         }
